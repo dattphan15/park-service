@@ -21,7 +21,14 @@ type Volunteers = {
 function combineVolunteers(
   volunteers: (RaccoonMeadowsVolunteers | WolfPointVolunteers)[]
 ) {
+  volunteers.map((volunteer) => {
+    let id = volunteer.id;
 
+    if (typeof id === 'string') {
+      id = parseInt(id, 10);
+    }
+
+  })
 }
 
 function calculateHours(volunteers: Volunteers[]) {
