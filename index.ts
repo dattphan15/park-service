@@ -42,6 +42,10 @@ function isVerified(verified: string | boolean) {
   return verified;
 }
 
+function getHours(activity: CombinedActivity) {
+  //..
+}
+
 function calculateHours(volunteers: Volunteers[]) {
   return volunteers.map((volunteer) => {
     let hours = 0;
