@@ -35,12 +35,21 @@ function combineVolunteers(
   })
 }
 
+function isVerified(verified: string | boolean) {
+  if (typeof verified === 'string') {
+    return verified === 'Yes';
+  }
+  return verified;
+}
+
 function calculateHours(volunteers: Volunteers[]) {
   return volunteers.map((volunteer) => {
     let hours = 0;
 
     volunteer.activities.forEach((activity) => {
-
+      if (isVerified(activity.verified)) {
+        //..
+      }
     });
 
     return {
