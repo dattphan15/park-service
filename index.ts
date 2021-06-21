@@ -43,8 +43,12 @@ function isVerified(verified: string | boolean) {
 }
 
 function getHours(activity: CombinedActivity) {
-  //..
-}
+  if ('hours' in activity) {
+    return activity.hours;
+  } else {
+    return activity.time;
+  }
+};
 
 function calculateHours(volunteers: Volunteers[]) {
   return volunteers.map((volunteer) => {
@@ -52,7 +56,7 @@ function calculateHours(volunteers: Volunteers[]) {
 
     volunteer.activities.forEach((activity) => {
       if (isVerified(activity.verified)) {
-        //..
+        hours += getHours(activity);
       }
     });
 
@@ -68,4 +72,5 @@ const combinedVolunteers = combineVolunteers(
   [].concat(wolfPointVolunteers, raccoonMeadowsVolunteers)
 );
 
-console.log(combinedVolunteers);
+const result = calculateHours(combinedVolunteers);
+console.log(result);
